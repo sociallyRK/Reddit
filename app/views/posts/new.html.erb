@@ -4,10 +4,6 @@
   <%= f.text_field :title, placeholder: "Title" %> <!-- field for the post's title  -->
   <%= f.text_field :link, placeholder: "Link" %> <!-- field for the post's link  -->
   <% f.hidden_field :user_id %>
-  <%= f.fields_for :comments, @post.comments.build do |b| %> <!-- Create a new empty bid nested within this auction, build = new -->
-    <%= b.text_field :content, placeholder: "Comment" %> <!-- field for the post's content, this is the first comment -->
-  <% end %>
-
   <%= f.submit %> <!-- submit button for the post -->
 <% end %>
 

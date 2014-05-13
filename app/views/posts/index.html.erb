@@ -1,6 +1,4 @@
-<h1>Welcome to Reddit</h1>
-
-<p>Posts:</p>
+<center><h1>Welcome to Reddit</h1></center>
 
 <% @posts.each do |post| %>
 <%= link_to post.title, post_comments_path(post) %>

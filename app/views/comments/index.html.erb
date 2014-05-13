@@ -1,5 +1,9 @@
 <h1><%= @post.title %></h1>
+<h3>Likes <%= @post.upvotes %></h3>
+<h3>Dislikes <%= @post.downvotes %></h3>
 <a href="<%=@post.link%>"><%= @post.link %></a>
+<%= link_to "Like", "/posts/vote/upvote/#{@post.id}", :class => 'btn btn-success' %>
+<%= link_to "Dislike", "/posts/vote/downvote/#{@post.id}", :class => 'btn btn-success' %>
 
 <% @comments.each do |comment| %>
 <li><%= comment.content %></li>

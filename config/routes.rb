@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  get '/posts/vote/upvote/:id', to: 'posts#up_vote'
+  get '/posts/vote/downvote/:id', to: 'posts#down_vote'
+
 end
 
 #                   Prefix Verb   URI Pattern                                 Controller#Action
