@@ -4,6 +4,13 @@
 
 <% @posts.each do |post| %>
 <%= link_to post.title, post_comments_path(post) %>
+  <% if post.user %>
+   <li>Poster: <%= post.user.email %></li>
+  <% else %>
+   <% %>
+  <% end %><br><br>
 <% end %>
+
+<%= link_to "New Post", new_post_path %>
 
 <!-- Display all of the posts and have a link to each post with its comments -->

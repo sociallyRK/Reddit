@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.create(comment_params) #Create a new comment for this post and call the comment_params method for the params
+    @comment[:user_id] = current_user.id
     if @comment.save #If the comment saves to the database
       redirect_to post_comments_path(@post) #Redirect to the post's comment's index
     end
@@ -28,7 +29,7 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:content) #Require that the params hash contains a bid, permit the amount attribute
+      params.require(:comment).permit(:content, :user_id) #Require that the params hash contains a bid, permit the amount attribute
     end
 
 end

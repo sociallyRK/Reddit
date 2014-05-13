@@ -2,6 +2,7 @@
 
 <%= form_for([@post, @comment]) do |f| %>
   <%= f.text_field :content, placeholder: "Comment" %>
+  <% f.hidden_field :user_id %>
   <%= f.submit %>
 <% end %>
 

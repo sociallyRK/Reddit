@@ -1,8 +1,13 @@
 <h1><%= @post.title %></h1>
-<p><%= @post.link %></p>
+<a href="<%=@post.link%>"><%= @post.link %></a>
 
 <% @comments.each do |comment| %>
 <li><%= comment.content %></li>
+  <% if comment.user %>
+    <li>Commenter: <%= comment.user.email %></li><br>
+  <% else %>
+    <% %>
+  <% end %>
 <% end %>
 
 <!-- Display all of the comments for this post -->

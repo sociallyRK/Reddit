@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create #Can place a binding.pry on the create method's first line to inspect the params passed through
     @post = Post.create(post_params) #Create a new post and call the post_params method
+    @post[:user_id] = current_user.id
     if @post.save #If the post saves to the database
       redirect_to post_comments_path(@post) #Redirect to the post's comments' index page
     end
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
   private #Only self can use this method
   
     def post_params
-      params.require(:post).permit(:title, :link, :comments_attributes => [:content])
+      params.require(:post).permit(:title, :link, :user_id, :comments_attributes => [:content])
     end
 
 end
